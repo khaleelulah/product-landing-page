@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product-landing-page</title>
+</head>
+
+<body>
+    <style>
+        body {
+            overflow-x: hidden;
+            font-family: serif;
+            margin: 0;
+            /* background-color: skyblue; */
+            /* background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat; */
+            /* background-image: url(https://th.bing.com/th/id/OIP.UtsKedLoXByk3Cu-UdtdsgHaDt?w=342&h=175&c=7&r=0&o=5&pid=1.7); */
+            position: relative;
+            /* margin: auto; */
+        }
+        
+        .container,
+        nav {
+            width: 100%;
+            max-width: 960px;
+            margin: auto;
+        }
+        
+        .container {
+            padding: 50px 0;
+        }
+        
+        .bg-1 {
+            background-color: RGBA(48, 57, 100, 0.85);
+            color: #f2f2f2;
+        }
+        
+        .bg-2 {
+            /* rgb(122,106,158) */
+            background-color: #f2f2f2;
+            color: RGBA(48, 57, 100, 0.85);
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: unset;
+            position: relative;
+        }
+        
+        ul {
+            /* list-style-type: none; */
+            text-align: start;
+            margin: 0;
+        }
+        
+        h2 {
+            font-weight: 600;
+            font-size: 2rem;
+        }
+        
+        h3 {
+            /* padding-top: 50px; */
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px
+        }
+        
+        h4 {
+            font-size: 2rem;
+        }
+        
+        h5 {
+            font-size: 1.5rem;
+        }
+        
+        h6 {
+            font-size: 1rem;
+        }
+        
+        p {
+            margin: 10px 0;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            left: 310px;
+            top: 30px;
+            color: #f2f2f2;
+            z-index: 2;
+        }
+        
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li {
+            text-decoration: none;
+            list-style-type: none;
+            padding-left: 15px;
+        }
+        
+        nav li:hover::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 15px;
+            width: 80%;
+            height: 3px;
+            margin-top: 2px;
+            /* border-radius: 20px; */
+            background-color: #f2f2f2;
+        }
+        
+        #home {
+            background-image: url(./images/banner-bg.jpg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            color: #f2f2f2;
+            z-index: -2;
+        }
+        
+        #home::before {
+            position: absolute;
+            opacity: 0.6;
+            inset: 0;
+            background-color: RGBA(48, 57, 100, 0.85);
+            content: "";
+            z-index: -1;
+        }
+        
+        .main-product {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .main-product-img {
+            display: flex;
+            justify-content: flex-end;
+            animation: left 4s infinite;
+        }
+        
+        .main-product>* {
+            width: 50%;
+        }
+        
+        .features {
+            justify-content: space-between;
+        }
+        
+        .features>* {
+            width: 33%;
+        }
+        
+        .feat ul li {
+            list-style-type: disc;
+            padding-top: 10px;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+        
+        .cards-container {
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 20px;
+            /* gap: 50px; */
+        }
+        
+        .features-card,
+        .pricing-card {
+            /* height: 240px; */
+            margin-bottom: 30px;
+            border-radius: 5px;
+            border: solid 1px;
+            overflow: hidden;
+            /* color: white; */
+            transition: 0.3s ease-in-out;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 15px;
+            /* padding: 10px 0; */
+            /* animation: left 2s ease-in; */
+            position: relative;
+            /* text-align: center; */
+            /* background-color: black; */
+        }
+        
+        .features-card {
+            border-color: RGBA(48, 57, 100, 0.85);
+        }
+        
+        .pricing-card {
+            text-align: center;
+        }
+        
+        .features-card h5 {
+            padding-left: 35px;
+        }
+        
+        .pricing-card {
+            border-color: #f2f2f2;
+        }
+        
+        .features-card:hover,
+        .pricing-card:hover {
+            box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cards-container>* {
+            width: 26%;
+        }
+        
+        .cards-container>:nth-child(2) {
+            width: 30%;
+        }
+        
+        button {
+            font-weight: 600;
+        }
+        
+        .button {
+            background-color: #f2f2f2;
+            color: RGBA(48, 57, 100, 0.85);
+            padding: 15px 35px;
+            border-style: none;
+            transition: 0.5s;
+            margin-top: 20px;
+        }
+        
+        .button:hover {
+            background-color: black;
+            color: #f2f2f2;
+        }
+        
+        .trial {
+            justify-content: space-between;
+        }
+        
+        .trial>button {
+            background-color: RGBA(48, 57, 100, 0.85);
+            color: #f2f2f2;
+            padding: 15px 35px;
+            border-style: none;
+            transition: 0.5s;
+        }
+        
+        .trial>button:hover {
+            color: #f2f2f2;
+            background-color: black;
+        }
+        
+        .feat,
+        .price {
+            padding-top: 30px;
+        }
+        
+        .feat {
+            border-top: solid 1px;
+        }
+        
+        .pricing-card p {
+            font-size: 30px;
+            /* line-height: 27px; */
+            /* font-weight: 600; */
+            color: #f2f2f2;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        @keyframes left {
+            /* from {
+                margin-left: 100%;
+                width: 300%;
+            }
+            to {
+                margin-left: 0%;
+                width: 300%;
+            } */
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-40px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+
+    <body>
+
+        <nav>
+            <h1>LOGO</h1>
+            <ul>
+                <a href="#home">
+                    <li>HOME</li>
+                </a>
+                <a href="#features">
+                    <li>FEATURES</li>
+                </a>
+                <a href="#price">
+                    <li>PRICING</li>
+                </a>
+                <a href="#product">
+                    <li> PRODUCTS</li>
+                </a>
+            </ul>
+        </nav>
+        <main>
+            <section id="home">
+                <div class="main-product container">
+                    <div class="main-product-about">
+                        <h2> Best digital watch for your daily life</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque iure, voluptatum esse officia quae corporis! Eum rem quasi quis beatae ea, praesentium, in quibusdam eligendi molestias debitis molestiae deleniti!</p>
+                        <button class="button">BUY NOW</button>
+                    </div>
+                    <div class="main-product-img"> <img src="./images/img1.png" alt="" width="70%" height="400px"></div>
+                </div>
+            </section>
+            <section class="bg-2" id="features">
+                <div class="container">
+                    <h3>FEATURES</h3>
+                    <div class="flex cards-container">
+
+                        <div class="features-card flex">
+                            <div><img src="./images/watch-6.jpg" alt="" width="100%" height="auto"></div>
+                            <div class="feat">
+                                <h5>Apple Watch-A01</h5>
+                                <ul>
+                                    <li>Workout tracker</li>
+                                    <li>Fitness tracker</li>
+                                    <li>Magnetic charging</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="features-card flex">
+                            <div><img src="./images/watch-3.jpg" alt="" width="100%" height="auto"></div>
+                            <div class="feat">
+                                <h5>Apple Watch-A02</h5>
+                                <ul>
+                                    <li>Water Resistant</li>
+                                    <li>Retina Display</li>
+                                    <li>Heart Rate Monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features-card flex">
+                            <div><img src="./images/watch-1.jpg" alt="" width="100%" height="auto"></div>
+                            <div class="feat">
+                                <h5>Apple Watch-A03</h5>
+                                <ul>
+                                    <li>GPRS Tracking</li>
+                                    <li>Notification Alert</li>
+                                    <li>Wifi Data Sync</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <section class="bg-1" id="price">
+                <div class="container">
+                    <h3>PRICING</h3>
+                    <div class="flex cards-container">
+
+                        <div class="pricing-card flex">
+                            <div> <img src="./images/watch-2.jpg" alt="" width="100%" height="auto"></div>
+
+                            <div class="price">
+                                <h5>Apple watch-A01</h5>
+                                <p>$199</p>
+                                <button class="button">BUY NOW</button>
+
+                            </div>
+                        </div>
+
+                        <div class="pricing-card flex">
+                            <div><img src="./images/watch-6.jpg" alt="" width="100%" height="auto"></div>
+                            <div class="price">
+                                <h5>Apple watch-A02</h5>
+                                <p>$399</p>
+                                <button class="button">BUY NOW</button>
+
+                            </div>
+                        </div>
+                        <div class="pricing-card flex">
+                            <div><img src="./images/watch-3.jpg" alt="" width="100%" height="auto"></div>
+                            <div class="price">
+                                <h5>Apple watch-A03</h5>
+                                <p>$299</p>
+                                <button class="button">BUY NOW</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <section class="bg-2">
+                <div class="container">
+                    <div class="flex trial">
+                        <div>
+                            <h4>Get 30 days free trial</h4>
+                            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, vitae saepe. </p>
+                        </div>
+                        <button>REGISTER NOW</button></div>
+
+                </div>
+            </section>
+            <footer class="bg-1">
+                <div class="container">
+                    <div>
+                        <h5>Copyright © 2019, All Right Reserved Seobin </h5>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </body>
+
+</html>
