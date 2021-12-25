@@ -14,35 +14,13 @@
             overflow-x: hidden;
             font-family: serif;
             margin: 0;
-            /* background-color: skyblue; */
+            background-color: #f2f2f2;
             /* background-position: center;
             background-size: cover;
             background-repeat: no-repeat; */
             /* background-image: url(https://th.bing.com/th/id/OIP.UtsKedLoXByk3Cu-UdtdsgHaDt?w=342&h=175&c=7&r=0&o=5&pid=1.7); */
             position: relative;
             /* margin: auto; */
-        }
-        
-        .container,
-        nav {
-            width: 100%;
-            max-width: 960px;
-            margin: auto;
-        }
-        
-        .container {
-            padding: 50px 0;
-        }
-        
-        .bg-1 {
-            background-color: RGBA(48, 57, 100, 0.85);
-            color: #f2f2f2;
-        }
-        
-        .bg-2 {
-            /* rgb(122,106,158) */
-            background-color: #f2f2f2;
-            color: RGBA(48, 57, 100, 0.85);
         }
         
         h1,
@@ -103,7 +81,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: absolute;
+            position: fixed;
             left: 310px;
             top: 30px;
             color: #f2f2f2;
@@ -118,19 +96,34 @@
         nav ul li {
             text-decoration: none;
             list-style-type: none;
-            padding-left: 15px;
+            padding-left: 25px;
         }
         
-        nav li:hover::after {
+        nav ul li a {
+            padding: 5px;
+        }
+        
+        nav a:hover::after {
             content: "";
             position: absolute;
             bottom: -5px;
-            left: 15px;
-            width: 80%;
+            left: 0px;
+            width: 100%;
             height: 3px;
             margin-top: 2px;
             /* border-radius: 20px; */
             background-color: #f2f2f2;
+        }
+        
+        .container,
+        nav {
+            width: 100%;
+            max-width: 960px;
+            margin: auto;
+        }
+        
+        .container {
+            padding: 50px 0;
         }
         
         #home {
@@ -140,6 +133,7 @@
             position: relative;
             color: #f2f2f2;
             z-index: -2;
+            height: 100vh;
         }
         
         #home::before {
@@ -153,7 +147,8 @@
         
         .main-product {
             display: flex;
-            height: 100vh;
+            /* z-index: 2; */
+            height: 100%;
             width: 100%;
             align-items: center;
             justify-content: space-between;
@@ -169,6 +164,29 @@
             width: 50%;
         }
         
+        button {
+            font-weight: 600;
+        }
+        
+        .button {
+            background-color: #f2f2f2;
+            color: RGBA(48, 57, 100, 0.85);
+            padding: 15px 35px;
+            border-style: none;
+            transition: 0.5s;
+            margin-top: 20px;
+        }
+        
+        .button:hover {
+            background-color: black;
+            color: #f2f2f2;
+        }
+        
+        .section-2,
+        .section-4 {
+            color: RGBA(48, 57, 100, 0.85);
+        }
+        
         .features {
             justify-content: space-between;
         }
@@ -177,18 +195,19 @@
             width: 33%;
         }
         
-        .feat ul li {
-            list-style-type: disc;
-            padding-top: 10px;
-            margin-left: 10px;
-            font-size: 18px;
-        }
-        
         .cards-container {
             justify-content: space-between;
             align-items: flex-end;
             margin-top: 20px;
             /* gap: 50px; */
+        }
+        
+        .cards-container>* {
+            width: 26%;
+        }
+        
+        .cards-container>:nth-child(2) {
+            width: 30%;
         }
         
         .features-card,
@@ -214,16 +233,15 @@
             border-color: RGBA(48, 57, 100, 0.85);
         }
         
-        .pricing-card {
-            text-align: center;
-        }
-        
-        .features-card h5 {
+        .feat h5 {
             padding-left: 35px;
         }
         
-        .pricing-card {
-            border-color: #f2f2f2;
+        .feat ul li {
+            list-style-type: disc;
+            padding-top: 10px;
+            margin-left: 10px;
+            font-size: 18px;
         }
         
         .features-card:hover,
@@ -231,29 +249,31 @@
             box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.3);
         }
         
-        .cards-container>* {
-            width: 26%;
+        .feat,
+        .price {
+            padding-top: 30px;
         }
         
-        .cards-container>:nth-child(2) {
-            width: 30%;
+        .feat {
+            border-top: solid 1px;
         }
         
-        button {
-            font-weight: 600;
+        .section-3,
+        footer {
+            background-color: RGBA(48, 57, 100, 0.85);
+            color: #f2f2f2;
         }
         
-        .button {
-            background-color: #f2f2f2;
-            color: RGBA(48, 57, 100, 0.85);
-            padding: 15px 35px;
-            border-style: none;
-            transition: 0.5s;
-            margin-top: 20px;
+        .pricing-card {
+            text-align: center;
         }
         
-        .button:hover {
-            background-color: black;
+        .pricing-card {
+            border-color: #f2f2f2;
+        }
+        
+        .pricing-card p {
+            font-size: 30px;
             color: #f2f2f2;
         }
         
@@ -272,22 +292,6 @@
         .trial>button:hover {
             color: #f2f2f2;
             background-color: black;
-        }
-        
-        .feat,
-        .price {
-            padding-top: 30px;
-        }
-        
-        .feat {
-            border-top: solid 1px;
-        }
-        
-        .pricing-card p {
-            font-size: 30px;
-            /* line-height: 27px; */
-            /* font-weight: 600; */
-            color: #f2f2f2;
         }
         
         footer {
@@ -316,28 +320,32 @@
     </style>
 
     <body>
+        <header>
+            <nav>
+                <h1>LOGO</h1>
+                <ul>
+                    <li>
+                        <a href="#home">
+                        HOME
+                    </a></li>
+                    <li>
+                        <a href="#features">
+                        FEATURES
+                    </a></li>
+                    <li> <a href="#price">
+                        PRICING
+                    </a></li>
+                    <li> <a href="#product">
+                         PRODUCTS
+                    </a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <nav>
-            <h1>LOGO</h1>
-            <ul>
-                <a href="#home">
-                    <li>HOME</li>
-                </a>
-                <a href="#features">
-                    <li>FEATURES</li>
-                </a>
-                <a href="#price">
-                    <li>PRICING</li>
-                </a>
-                <a href="#product">
-                    <li> PRODUCTS</li>
-                </a>
-            </ul>
-        </nav>
         <main>
             <section id="home">
                 <div class="main-product container">
-                    <div class="main-product-about">
+                    <div>
                         <h2> Best digital watch for your daily life</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque iure, voluptatum esse officia quae corporis! Eum rem quasi quis beatae ea, praesentium, in quibusdam eligendi molestias debitis molestiae deleniti!</p>
                         <button class="button">BUY NOW</button>
@@ -345,13 +353,13 @@
                     <div class="main-product-img"> <img src="./images/img1.png" alt="" width="70%" height="400px"></div>
                 </div>
             </section>
-            <section class="bg-2" id="features">
+            <section class="section-2" id="features">
                 <div class="container">
                     <h3>FEATURES</h3>
                     <div class="flex cards-container">
 
                         <div class="features-card flex">
-                            <div><img src="./images/watch-6.jpg" alt="" width="100%" height="auto"></div>
+                            <img src="./images/watch-6.jpg" alt="" width="100%" height="auto">
                             <div class="feat">
                                 <h5>Apple Watch-A01</h5>
                                 <ul>
@@ -363,7 +371,7 @@
                         </div>
 
                         <div class="features-card flex">
-                            <div><img src="./images/watch-3.jpg" alt="" width="100%" height="auto"></div>
+                            <img src="./images/watch-3.jpg" alt="" width="100%" height="auto">
                             <div class="feat">
                                 <h5>Apple Watch-A02</h5>
                                 <ul>
@@ -374,7 +382,7 @@
                             </div>
                         </div>
                         <div class="features-card flex">
-                            <div><img src="./images/watch-1.jpg" alt="" width="100%" height="auto"></div>
+                            <img src="./images/watch-1.jpg" alt="" width="100%" height="auto">
                             <div class="feat">
                                 <h5>Apple Watch-A03</h5>
                                 <ul>
@@ -388,13 +396,13 @@
                 </div>
                 </div>
             </section>
-            <section class="bg-1" id="price">
+            <section class="section-3" id="price">
                 <div class="container">
                     <h3>PRICING</h3>
                     <div class="flex cards-container">
 
                         <div class="pricing-card flex">
-                            <div> <img src="./images/watch-2.jpg" alt="" width="100%" height="auto"></div>
+                            <img src="./images/watch-2.jpg" alt="" width="100%" height="auto">
 
                             <div class="price">
                                 <h5>Apple watch-A01</h5>
@@ -405,7 +413,7 @@
                         </div>
 
                         <div class="pricing-card flex">
-                            <div><img src="./images/watch-6.jpg" alt="" width="100%" height="auto"></div>
+                            <img src="./images/watch-6.jpg" alt="" width="100%" height="auto">
                             <div class="price">
                                 <h5>Apple watch-A02</h5>
                                 <p>$399</p>
@@ -414,7 +422,7 @@
                             </div>
                         </div>
                         <div class="pricing-card flex">
-                            <div><img src="./images/watch-3.jpg" alt="" width="100%" height="auto"></div>
+                            <img src="./images/watch-3.jpg" alt="" width="100%" height="auto">
                             <div class="price">
                                 <h5>Apple watch-A03</h5>
                                 <p>$299</p>
@@ -426,7 +434,7 @@
                 </div>
                 </div>
             </section>
-            <section class="bg-2">
+            <section class="section-4">
                 <div class="container">
                     <div class="flex trial">
                         <div>
@@ -437,14 +445,15 @@
 
                 </div>
             </section>
-            <footer class="bg-1">
-                <div class="container">
-                    <div>
-                        <h5>Copyright © 2019, All Right Reserved Seobin </h5>
-                    </div>
-                </div>
-            </footer>
+
         </main>
+        <footer class="bg-1">
+            <div class="container">
+                <!-- <div> -->
+                <h5>Copyright © 2019, All Right Reserved Seobin </h5>
+                <!-- </div> -->
+            </div>
+        </footer>
     </body>
 
 </html>
