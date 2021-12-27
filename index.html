@@ -77,15 +77,39 @@
             display: flex;
         }
         
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            z-index: 2;
+            justify-content: space-between;
+            position: fixed;
+            left: 0;
+            right: 0;
+            color: #f2f2f2;
+            align-items: center;
+            color: RGBA(48, 57, 100, 0.85);
+            background-color: #f2f2f2;
+        }
+        
+        .header-content {
+            justify-content: space-between;
+            width: 100%;
+            max-width: 960px;
+            margin: auto;
+            align-items: center;
+            padding: 10px 5px;
+        }
+        
         nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            left: 310px;
-            top: 30px;
-            color: #f2f2f2;
-            z-index: 2;
+            /* left: 310px;
+            top: 30px; */
+            /* z-index: 2; */
         }
         
         nav ul {
@@ -102,6 +126,7 @@
         nav ul li a {
             padding: 5px;
         }
+        /* nav a:active, */
         
         nav a:hover::after {
             content: "";
@@ -112,19 +137,11 @@
             height: 3px;
             margin-top: 2px;
             /* border-radius: 20px; */
-            background-color: #f2f2f2;
+            background-color: RGBA(48, 57, 100, 0.85);
         }
-        
-        .container,
-        nav {
-            width: 100%;
-            max-width: 960px;
-            margin: auto;
-        }
-        
-        .container {
-            padding: 50px 0;
-        }
+        /* .container {
+            
+        } */
         
         #home {
             background-image: url(./images/banner-bg.jpg);
@@ -133,6 +150,8 @@
             position: relative;
             color: #f2f2f2;
             z-index: -2;
+            padding-top: 50px;
+            /* margin: 200px 0; */
             height: 100vh;
         }
         
@@ -147,17 +166,25 @@
         
         .main-product {
             display: flex;
+            margin-top: 200px;
+            /* margin-top: 700px; */
             /* z-index: 2; */
-            height: 100%;
+            /* height: 100%; */
             width: 100%;
             align-items: center;
-            justify-content: space-between;
+            /* justify-content: space-between; */
         }
         
         .main-product-img {
             display: flex;
-            justify-content: flex-end;
-            animation: left 4s infinite;
+            /* justify-content: end; */
+            /* align-items: flex-start; */
+            /* animation: left 4s infinite; */
+        }
+        
+        .img {
+            width: 60%;
+            margin: auto;
         }
         
         .main-product>* {
@@ -317,29 +344,122 @@
                 transform: translateY(0px);
             }
         }
+        
+        @media (max-width:960px) {
+            nav {
+                display: none;
+            }
+            .main-product {
+                margin-top: 50px;
+                flex-direction: column-reverse;
+                /* justify-content: space-between; */
+            }
+            .main-product>* {
+                width: 100%;
+                height: 40%;
+                text-align: center;
+            }
+            /* .abt {
+                padding: 0 20px;
+            } */
+            .main-product-img {
+                width: 70%;
+                margin: auto;
+                height: 50%;
+                align-items: center;
+                padding-bottom: 100px;
+                /* margin-top: 40px; */
+                /* margin: auto; */
+            }
+            .img {
+                height: 50%;
+            }
+            .main-product button {
+                margin-bottom: 70px;
+            }
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cards-container>* {
+                width: 50%;
+            }
+            .cards-container>:nth-child(2) {
+                width: 50%;
+            }
+            .trial {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .trial>.button {
+                width: 200px;
+            }
+        }
+        
+        @media (max-width:550px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            h4 {
+                font-size: 1.3rem;
+            }
+            h5 {
+                font-size: 1.1rem;
+            }
+            p {
+                font-size: 0.8rem;
+            }
+            .price p {
+                font-size: 1rem;
+            }
+            .cards-container>* {
+                width: 80%;
+            }
+            .cards-container>:nth-child(2) {
+                width: 80%;
+            }
+        }
+        /* @media (min-width:1025px) {
+            .container,
+            .header-content {
+                width: 100%;
+                max-width: 1000px;
+                margin: auto;
+            }
+            .container {
+                padding: 40px 20px;
+            }
+        } */
     </style>
 
     <body>
         <header>
-            <nav>
+            <div class="flex header-content">
                 <h1>LOGO</h1>
-                <ul>
-                    <li>
-                        <a href="#home">
+                <nav>
+
+                    <ul>
+                        <li>
+                            <a href="#home">
                         HOME
                     </a></li>
-                    <li>
-                        <a href="#features">
+                        <li>
+                            <a href="#features">
                         FEATURES
                     </a></li>
-                    <li> <a href="#price">
+                        <li> <a href="#price">
                         PRICING
                     </a></li>
-                    <li> <a href="#product">
+                        <li> <a href="#product">
                          PRODUCTS
                     </a></li>
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
         <main>
@@ -350,7 +470,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque iure, voluptatum esse officia quae corporis! Eum rem quasi quis beatae ea, praesentium, in quibusdam eligendi molestias debitis molestiae deleniti!</p>
                         <button class="button">BUY NOW</button>
                     </div>
-                    <div class="main-product-img"> <img src="./images/img1.png" alt="" width="70%" height="400px"></div>
+                    <div class="main-product-img"> <img src="./images/img1.png" alt="" class="img"></div>
                 </div>
             </section>
             <section class="section-2" id="features">
@@ -441,10 +561,11 @@
                             <h4>Get 30 days free trial</h4>
                             <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, vitae saepe. </p>
                         </div>
-                        <button>REGISTER NOW</button></div>
+                        <button class="button">REGISTER NOW</button></div>
 
                 </div>
             </section>
+
 
         </main>
         <footer>
